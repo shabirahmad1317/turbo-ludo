@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   viewport-fit=cover">
+
+    <meta name="theme-color"
+          content="#10265d">
+
+    <title>Turbo Ludo</title>
+
+    <link rel="stylesheet" href="game.css">
+
+    <link rel="stylesheet" href="spin.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+
+        .luck-status {
+
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ffc83d;
+            border-radius: 10px;
+            background: #10265d;
+            color: #ffc83d;
+            font-size: 12px;
+            font-weight: bold;
+
+        }
+
+        .cell .token {
+
+            position: absolute;
+            width: 95%;
+            height: 120%;
+            bottom: 0;
+            z-index: 3;
+
+        }
+
+        .cell .token:nth-of-type(2) {
+
+            transform:
+                translateX(-18%) scale(.75);
+
+        }
+
+        .cell .token:nth-of-type(3) {
+
+            transform:
+                translateX(18%) scale(.75);
+
+        }
+
+        .cell .token:nth-of-type(4) {
+
+            transform:
+                translateY(-20%) scale(.75);
+
+        }
+
+        .token.released {
+
+            animation: releaseToken .4s ease-out;
+
+        }
+
+        @keyframes releaseToken {
+
+            from {
+
+                opacity: 0;
+                scale: .3;
+
+            }
+
+            to {
+
+                opacity: 1;
+                scale: 1;
+
+            }
+
+        }
+
+        .gift-message {
+
+            color: #ffc83d;
+            font-weight: bold;
+            font-size: 16px;
+            min-height: 20px;
+            margin: 8px 0;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<main class="game-container">
+
+    <!-- GAME HEADER -->
+
+    <header class="game-header">
+
+        <button class="icon-button"
+                onclick="goHome()">
+
+            ❮
+
+        </button>
+
+        <div class="game-heading">
+
+            <h2 id="gameTitle">
+                TURBO LUDO
+            </h2>
+
+            <small id="gameSubtitle">
+                OFFLINE GAME
+            </small>
+
+        </div>
+
+        <button class="icon-button"
+                onclick="restartGame()">
+
+            ↻
+
+        </button>
+
+    </header>
+
+    <!-- LUCK ROLL STATUS -->
+
+    <div id="luckStatus"
+         class="luck-status">
+
+        ✨ LUCK ROLL ACTIVE
+
+    </div>
+
+    <!-- TOP PLAYERS -->
+
+    <div class="players-row">
+
+        <div class="player blue-player"
+             id="player-blue">
+
+            <div class="avatar">👤</div>
+
+            <div class="player-info">
+
+                <strong>Player 2</strong>
+
+                <small>Blue</small>
+
+                <span id="blue-score">
+                    0 / 4
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="player green-player"
+             id="player-green">
+
+            <div class="avatar">👤</div>
+
+            <div class="player-info">
+
+                <strong>Player 3</strong>
+
+                <small>Green</small>
+
+                <span id="green-score">
+                    0 / 4
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LUDO BOARD -->
+
+    <div class="board-frame">
+
+        <div id="ludoBoard"
+             class="ludo-board">
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM PLAYERS -->
+
+    <div class="players-row">
+
+        <div class="player red-player"
+             id="player-red">
+
+            <div class="avatar">👤</div>
+
+            <div class="player-info">
+
+                <strong>Player 1</strong>
+
+                <small>Red</small>
+
+                <span id="red-score">
+                    0 / 4
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="player yellow-player"
+             id="player-yellow">
+
+            <div class="avatar">👤</div>
+
+            <div class="player-info">
+
+                <strong>Player 4</strong>
+
+                <small>Yellow</small>
+
+                <span id="yellow-score">
+                    0 / 4
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- GAME CONTROLS -->
+
+    <section class="game-controls">
+
+        <div id="turnMessage"
+             class="turn-message">
+
+            Ready to Play
+
+        </div>
+
+        <div class="dice-area">
+
+            <div class="game-dice"
+                 id="dice1">
+
+            </div>
+
+            <div class="game-dice"
+                 id="dice2">
+
+            </div>
+
+        </div>
+
+        <button id="rollButton"
+                class="roll-button"
+                onclick="rollDice()">
+
+            🎲 ROLL DICE
+
+        </button>
+
+        <div id="giftMessage"
+             class="gift-message">
+
+        </div>
+
+        <div id="gameMessage"
+             class="game-message">
+
+            Welcome to Turbo Ludo
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- LUCKY SPIN DIALOG -->
+
+<dialog id="spinDialog">
+
+    <div class="spin-content">
+
+        <div class="spin-crown">👑</div>
+
+        <h1>LUCKY SPIN</h1>
+
+        <p>Who will start the game?</p>
+
+        <div class="wheel-container">
+
+            <div class="wheel-pointer"></div>
+
+            <div id="spinWheel"
+                 class="spin-wheel">
+
+                <div class="wheel-label wheel-red">
+                    RED
+                </div>
+
+                <div class="wheel-label wheel-blue">
+                    BLUE
+                </div>
+
+                <div class="wheel-label wheel-green">
+                    GREEN
+                </div>
+
+                <div class="wheel-label wheel-yellow">
+                    YELLOW
+                </div>
+
+                <div class="wheel-center">
+                    👑
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="spinResult"
+             class="spin-result">
+
+            GOOD LUCK!
+
+        </div>
+
+        <button id="spinButton"
+                class="spin-button"
+                onclick="startLuckySpin()">
+
+            SPIN THE WHEEL
+
+        </button>
+
+        <button id="startMatchButton"
+                class="spin-button start-match"
+                onclick="beginMatch()"
+                hidden>
+
+            START GAME
+
+        </button>
+
+    </div>
+
+</dialog>
+
+<!-- JAVASCRIPT FILES -->
+
+<script src="game.js"></script>
+
+<script src="spin.js"></script>
+
+<script src="engine.js"></script>
+
+<script src="save.js"></script>
+
+<script src="pwa.js"></script>
+
+</body>
+
+</html>

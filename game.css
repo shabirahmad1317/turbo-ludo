@@ -1,0 +1,444 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #e53935;
+    --blue: #2478e5;
+    --green: #24b34b;
+    --yellow: #f4c51d;
+    --gold: #ffc83d;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background: radial-gradient(
+        ellipse at top,
+        #3977dc,
+        #123b91 50%,
+        #081c52
+    );
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100dvh;
+    margin: auto;
+    padding: 12px;
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.game-heading {
+    text-align: center;
+}
+
+.game-heading h2 {
+    font-size: 21px;
+    color: var(--gold);
+    text-shadow: 0 3px 3px #0006;
+}
+
+.game-heading small {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #d4e1ff;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    color: white;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    font-size: 22px;
+
+    background: linear-gradient(
+        #3264bb,
+        #10265d
+    );
+}
+
+.players-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: #071c5266;
+    min-width: 125px;
+}
+
+.avatar {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    border: 2px solid #ffffff70;
+    border-radius: 10px;
+}
+
+.blue-player .avatar {
+    background: var(--blue);
+}
+
+.green-player .avatar {
+    background: var(--green);
+}
+
+.red-player .avatar {
+    background: var(--red);
+}
+
+.yellow-player .avatar {
+    background: var(--yellow);
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.player-info strong {
+    font-size: 12px;
+}
+
+.player-info small {
+    font-size: 11px;
+    color: #c4d5f7;
+}
+
+.player-info span {
+    font-size: 10px;
+    color: var(--gold);
+}
+
+.player.active {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px #ffc83d90;
+    animation: activePlayer 1.5s infinite;
+}
+
+.board-frame {
+    padding: 5px;
+    background: var(--gold);
+    border: 2px solid #fff0a6;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px #0007;
+}
+
+.ludo-board {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+
+    background: white;
+    overflow: hidden;
+}
+
+.cell {
+    position: relative;
+    background: #ffffff;
+    border: 0.5px solid #84909c;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #4b5563;
+    font-size: clamp(10px, 3vw, 19px);
+    font-weight: bold;
+}
+
+.cell.red {
+    background: var(--red);
+}
+
+.cell.blue {
+    background: var(--blue);
+}
+
+.cell.green {
+    background: var(--green);
+}
+
+.cell.yellow {
+    background: var(--yellow);
+}
+
+.home-stop {
+    font-size: clamp(12px, 3.5vw, 22px);
+}
+
+.home-stop.colored {
+    color: white;
+}
+
+.last-point {
+    color: #334155;
+    font-weight: 900;
+}
+
+.home {
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 1px solid #334155;
+}
+
+.home.red {
+    background: var(--red);
+}
+
+.home.blue {
+    background: var(--blue);
+}
+
+.home.green {
+    background: var(--green);
+}
+
+.home.yellow {
+    background: var(--yellow);
+}
+
+.home-inner {
+    width: 72%;
+    height: 72%;
+    border-radius: 10%;
+    background: white;
+    border: 2px solid #0003;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 10%;
+    padding: 10%;
+
+    box-shadow: inset 0 2px 5px #0002;
+}
+
+.token-slot {
+    position: relative;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #00000012;
+}
+
+.token {
+    width: 78%;
+    height: 90%;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    filter: drop-shadow(0 3px 2px #0005);
+
+    transition: transform 0.2s;
+}
+
+.token:hover {
+    transform: translateY(-3px);
+}
+
+.token svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.center-home {
+    position: relative;
+
+    background: conic-gradient(
+        from -45deg,
+        var(--green) 0deg 90deg,
+        var(--yellow) 90deg 180deg,
+        var(--red) 180deg 270deg,
+        var(--blue) 270deg 360deg
+    );
+
+    border: 1px solid #334155;
+}
+
+.center-crown {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: clamp(15px, 5vw, 30px);
+}
+
+.game-controls {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.turn-message {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.dice-area {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.game-dice {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+
+    background: linear-gradient(
+        white,
+        #e4e9f0
+    );
+
+    box-shadow:
+        0 5px 0 #9caec9,
+        0 8px 12px #0005;
+}
+
+.dice-dot {
+    border-radius: 50%;
+    background: #172c50;
+    visibility: hidden;
+}
+
+.dice-dot.visible {
+    visibility: visible;
+}
+
+.roll-button {
+    width: 75%;
+    max-width: 280px;
+    padding: 14px;
+    border: 3px solid var(--gold);
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: 900;
+
+    background: linear-gradient(
+        #39ba5e,
+        #167b35
+    );
+
+    box-shadow: 0 5px 0 #0c4b24;
+}
+
+.roll-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.game-message {
+    margin-top: 16px;
+    min-height: 24px;
+    font-size: 12px;
+    color: #d5e3ff;
+}
+
+.rolling {
+    animation: shakeDice 0.15s infinite;
+}
+
+@keyframes shakeDice {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(15deg)
+                   translateY(-5px);
+    }
+
+    100% {
+        transform: rotate(-15deg);
+    }
+}
+
+@keyframes activePlayer {
+    0%, 100% {
+        box-shadow: 0 0 6px #ffc83d70;
+    }
+
+    50% {
+        box-shadow: 0 0 18px #ffc83d;
+    }
+}
+
+.no-animations * {
+    animation: none !important;
+    transition: none !important;
+}
+
+@media (max-height: 800px) {
+    .game-container {
+        max-width: 420px;
+    }
+
+    .game-header {
+        margin-bottom: 8px;
+    }
+
+    .players-row {
+        margin: 7px 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .player {
+        min-width: 110px;
+    }
+
+    .avatar {
+        width: 35px;
+        height: 35px;
+    }
+}

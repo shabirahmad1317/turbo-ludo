@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#123b91">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Turbo Ludo</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<main class="app">
+
+    <header class="top-bar">
+
+        <button class="icon-button"
+                id="soundButton"
+                onclick="toggleSound()">
+            🔊
+        </button>
+
+        <span class="offline-label">
+            OFFLINE EDITION
+        </span>
+
+        <button class="icon-button"
+                onclick="openSettings()">
+            ⚙
+        </button>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="crown">👑</div>
+
+        <h1 class="turbo-title">TURBO</h1>
+
+        <div class="ludo-logo">
+            <span class="letter red">L</span>
+            <span class="letter green">U</span>
+            <span class="letter yellow">D</span>
+            <span class="letter blue">O</span>
+        </div>
+
+        <div class="logo-dice">
+            <span class="dice dice-one">⚄</span>
+            <span class="dice dice-two">⚅</span>
+        </div>
+
+        <p class="slogan">ROLL • PLAY • WIN</p>
+
+    </section>
+
+    <section class="menu">
+
+        <button class="game-button classic-button"
+                onclick="startGame('classic')">
+
+            <span class="game-icon">🎲</span>
+
+            <span class="button-text">
+                <strong>CLASSIC LUDO</strong>
+                <small>Play Offline</small>
+            </span>
+
+            <span class="arrow">❯</span>
+
+        </button>
+
+        <button class="game-button turbo-button"
+                onclick="startGame('turbo')">
+
+            <span class="game-icon">⚡</span>
+
+            <span class="button-text">
+                <strong>TURBO TEAM</strong>
+                <small>2 Teams • 2 Dice • 4 Players</small>
+            </span>
+
+            <span class="arrow">❯</span>
+
+        </button>
+
+        <button class="rules-button"
+                onclick="showRules()">
+            📖 HOW TO PLAY
+        </button>
+
+    </section>
+
+    <footer>
+        TURBO LUDO • VERSION 1.0
+    </footer>
+
+</main>
+
+<dialog id="settingsDialog">
+
+    <h2>SETTINGS</h2>
+
+    <label class="setting-row">
+        Sound Effects
+        <input type="checkbox" id="soundSetting">
+    </label>
+
+    <label class="setting-row">
+        Animations
+        <input type="checkbox" id="animationSetting">
+    </label>
+
+    <button class="rules-button"
+            onclick="saveSettings()">
+        SAVE & CLOSE
+    </button>
+
+</dialog>
+
+<dialog id="modeDialog">
+
+    <h2 id="modeTitle"></h2>
+
+    <p id="modeDescription"></p>
+
+    <button class="rules-button"
+            onclick="closeMode()">
+        BACK
+    </button>
+
+</dialog>
+
+<dialog id="rulesDialog">
+
+    <h2>HOW TO PLAY</h2>
+
+    <h3>Classic Ludo</h3>
+
+    <p>
+        Traditional Ludo with one dice
+        and local multiplayer.
+    </p>
+
+    <h3>Turbo Team Ludo</h3>
+
+    <p>
+        Four players, two teams and two dice.
+        Includes Luck Roll, Gift Tokens,
+        Home Blockades, Capture to Finish,
+        Lucky Spin and Turbo Mode.
+    </p>
+
+    <button class="rules-button"
+            onclick="document.getElementById(
+                'rulesDialog').close()">
+        CLOSE
+    </button>
+
+</dialog>
+
+<script src="app.js"></script>
+
+<script src="pwa.js"></script>
+
+</body>
+</html>

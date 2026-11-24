@@ -1,0 +1,32 @@
+
+{
+    "id": "./",
+    "name": "Turbo Ludo",
+    "short_name": "Turbo Ludo",
+    "description": "Royal offline team Ludo with Turbo Mode, Lucky Spin, Luck Roll and custom rules.",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#10265d",
+    "theme_color": "#10265d",
+    "lang": "en",
+    "categories": [
+        "games",
+        "entertainment"
+    ],
+    "icons": [
+        {
+            "src": "./icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

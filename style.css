@@ -1,0 +1,493 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #ffc83d;
+    --light-gold: #fff0a6;
+    --royal-blue: #123b91;
+    --dark-blue: #081c52;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100dvh;
+
+    background: radial-gradient(
+        ellipse at 50% 20%,
+        #3977dc,
+        #123b91 45%,
+        #081c52 100%
+    );
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100dvh;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.offline-label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+button {
+    font-family: inherit;
+    color: white;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.icon-button {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    border-radius: 14px;
+    border: 2px solid var(--gold);
+
+    background: linear-gradient(
+        #2859ad,
+        #10265d
+    );
+
+    box-shadow: 0 4px 0 #07183d;
+}
+
+.hero {
+    text-align: center;
+    padding: 24px 0 30px;
+}
+
+.crown {
+    font-size: 65px;
+    filter: drop-shadow(0 5px 5px #0006);
+}
+
+.turbo-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 2px 0 #aa6812,
+        0 4px 0 #794208,
+        0 7px 10px #0008;
+}
+
+.ludo-logo {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 14px 0 22px;
+}
+
+.letter {
+    width: 64px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--gold);
+    border-radius: 13px;
+    font-size: 48px;
+    font-weight: 900;
+
+    box-shadow:
+        0 6px 0 #071b49,
+        inset 0 3px 6px #ffffff50;
+
+    text-shadow: 0 3px 2px #0006;
+}
+
+.red {
+    background: linear-gradient(
+        #ff6262,
+        #bc1727
+    );
+
+    transform: rotate(-5deg);
+}
+
+.green {
+    background: linear-gradient(
+        #51db76,
+        #138337
+    );
+
+    transform: rotate(4deg);
+}
+
+.yellow {
+    background: linear-gradient(
+        #ffe45c,
+        #dc9705
+    );
+
+    transform: rotate(-4deg);
+}
+
+.blue {
+    background: linear-gradient(
+        #5aa6ff,
+        #1852c5
+    );
+
+    transform: rotate(5deg);
+}
+
+.logo-dice {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.dice {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 58px;
+    line-height: 1;
+    color: #132447;
+
+    background: linear-gradient(
+        #ffffff,
+        #dce4ef
+    );
+
+    box-shadow:
+        0 7px 0 #a4b2c8,
+        0 12px 16px #0005;
+}
+
+.dice-one {
+    transform: rotate(-12deg);
+}
+
+.dice-two {
+    transform: rotate(12deg);
+}
+
+.slogan {
+    color: var(--light-gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-top: 28px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.game-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 14px;
+    border: 3px solid var(--gold);
+    border-radius: 17px;
+    text-align: left;
+
+    box-shadow:
+        0 6px 0 #8b5a12,
+        0 10px 20px #0004,
+        inset 0 2px 5px #ffffff40;
+}
+
+.classic-button {
+    background: linear-gradient(
+        #3ab85c,
+        #16732f
+    );
+}
+
+.turbo-button {
+    background: linear-gradient(
+        #ed5260,
+        #a81b2e
+    );
+}
+
+.game-icon {
+    font-size: 32px;
+}
+
+.button-text {
+    flex: 1;
+}
+
+.button-text strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 900;
+    text-shadow: 0 2px 2px #0005;
+}
+
+.button-text small {
+    display: block;
+    font-size: 12px;
+    margin-top: 7px;
+    color: #fff4dc;
+}
+
+.arrow {
+    font-size: 23px;
+    color: var(--gold);
+}
+
+.rules-button {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--gold);
+    border-radius: 13px;
+    font-weight: bold;
+    font-size: 14px;
+
+    background: linear-gradient(
+        #3468c6,
+        #173b83
+    );
+
+    box-shadow: 0 4px 0 #071c4b;
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #b6cbef;
+}
+
+dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(90%, 380px);
+    padding: 24px;
+    border: 3px solid var(--gold);
+    border-radius: 20px;
+    background: #123b91;
+    color: white;
+}
+
+dialog::backdrop {
+    background: #000b;
+}
+
+dialog h2 {
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 24px;
+}
+
+dialog h3 {
+    color: var(--gold);
+    margin: 15px 0 8px;
+}
+
+dialog p {
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+input[type="checkbox"] {
+    width: 23px;
+    height: 23px;
+    accent-color: var(--gold);
+}
+
+/* Dice Animation */
+
+@keyframes floatDice {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -7px;
+    }
+}
+
+.dice {
+    animation: floatDice 2s ease-in-out infinite;
+}
+
+.dice-two {
+    animation-delay: 0.4s;
+}
+
+.no-animations * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Laptop and smaller screen layout */
+
+@media (max-height: 800px) {
+
+    .hero {
+        padding: 12px 0 20px;
+    }
+
+    .crown {
+        font-size: 45px;
+    }
+
+    .turbo-title {
+        font-size: 38px;
+    }
+
+    .letter {
+        width: 53px;
+        height: 58px;
+        font-size: 38px;
+    }
+
+    .dice {
+        width: 48px;
+        height: 48px;
+        font-size: 42px;
+    }
+
+    .slogan {
+        margin-top: 18px;
+    }
+
+    .game-button {
+        padding: 13px;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    footer {
+        padding-top: 18px;
+    }
+}
+
+/* Short laptop screens */
+
+@media (max-height: 650px) {
+
+    .app {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 5px 0 15px;
+    }
+
+    .crown {
+        font-size: 32px;
+    }
+
+    .turbo-title {
+        font-size: 32px;
+    }
+
+    .ludo-logo {
+        margin: 8px 0 12px;
+    }
+
+    .letter {
+        width: 45px;
+        height: 48px;
+        font-size: 32px;
+    }
+
+    .logo-dice {
+        margin: 8px 0;
+    }
+
+    .dice {
+        width: 40px;
+        height: 40px;
+        font-size: 35px;
+    }
+
+    .slogan {
+        margin-top: 12px;
+        font-size: 10px;
+    }
+
+    .game-button {
+        padding: 10px;
+    }
+
+    .game-icon {
+        font-size: 25px;
+    }
+
+    .button-text strong {
+        font-size: 16px;
+    }
+
+    .rules-button {
+        padding: 10px;
+    }
+
+    .icon-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/* Small mobile phones */
+
+@media (max-width: 360px) {
+
+    .letter {
+        width: 50px;
+        height: 55px;
+        font-size: 36px;
+    }
+
+    .button-text strong {
+        font-size: 16px;
+    }
+
+    .app {
+        padding: 14px;
+    }
+}
