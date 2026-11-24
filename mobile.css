@@ -1,0 +1,360 @@
+
+/* ========================================
+   TURBO LUDO - MOBILE OPTIMIZATION
+   ======================================== */
+
+   * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+}
+
+/* Equal token sizes on every board cell */
+
+#ludoBoard .cell .token {
+    position: absolute !important;
+    width: 90% !important;
+    height: 95% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 90% !important;
+    max-height: 95% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    left: 5% !important;
+    bottom: 0 !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+#ludoBoard .cell .token svg {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* Stacked tokens */
+
+#ludoBoard .cell .token:nth-of-type(2) {
+    transform: translateX(-12%) scale(.82)
+        !important;
+}
+
+#ludoBoard .cell .token:nth-of-type(3) {
+    transform: translateX(12%) scale(.82)
+        !important;
+}
+
+#ludoBoard .cell .token:nth-of-type(4) {
+    transform: translateY(-15%) scale(.82)
+        !important;
+}
+
+/* Prevent token animation from changing size */
+
+#ludoBoard .token.legal-token {
+    animation: mobileTokenGlow .8s infinite
+        alternate !important;
+}
+
+@keyframes mobileTokenGlow {
+    from {
+        filter: drop-shadow(0 0 2px white);
+    }
+
+    to {
+        filter: drop-shadow(0 0 5px gold);
+    }
+}
+
+/* Compact mobile game */
+
+@media (max-width: 600px) {
+
+    html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    body {
+        width: 100%;
+        height: 100dvh !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        overscroll-behavior: none;
+        padding:
+            env(safe-area-inset-top)
+            8px
+            env(safe-area-inset-bottom)
+            8px !important;
+    }
+
+    .game-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        margin: 0 auto !important;
+        padding: 4px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 5px !important;
+
+        overflow: hidden !important;
+    }
+
+    /* Header */
+
+    .game-header {
+        flex-shrink: 0;
+        margin: 0 !important;
+        padding: 2px !important;
+    }
+
+    .game-heading h2 {
+        font-size: 16px !important;
+        margin: 0 !important;
+    }
+
+    .game-heading small {
+        font-size: 9px !important;
+    }
+
+    .icon-button {
+        width: 30px !important;
+        height: 30px !important;
+        padding: 3px !important;
+        font-size: 15px !important;
+    }
+
+    /* Game status */
+
+    .luck-status {
+        font-size: 9px !important;
+        padding: 3px !important;
+        margin: 0 !important;
+    }
+
+    #saveIndicator {
+        font-size: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #pwaStatus {
+        display: none !important;
+    }
+
+    /* Team scores */
+
+    .team-progress {
+        gap: 5px !important;
+        margin: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .team-progress-card {
+        padding: 3px !important;
+        font-size: 9px !important;
+    }
+
+    .team-track {
+        height: 3px !important;
+        margin-top: 2px !important;
+    }
+
+    /* Player panels */
+
+    .players-row {
+        display: flex !important;
+        gap: 5px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .player {
+        flex: 1;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding: 5px !important;
+        margin: 0 !important;
+        gap: 5px !important;
+        border-radius: 9px !important;
+    }
+
+    .avatar {
+        width: 27px !important;
+        height: 27px !important;
+        min-width: 27px !important;
+        font-size: 17px !important;
+        padding: 0 !important;
+    }
+
+    .player-info {
+        min-width: 0;
+        line-height: 1.15 !important;
+    }
+
+    .player-info strong {
+        font-size: 10px !important;
+    }
+
+    .player-info small {
+        font-size: 10px !important;
+    }
+
+    .player-info span {
+        font-size: 10px !important;
+    }
+
+    .capture-counter {
+        font-size: 8px !important;
+        margin: 1px 0 !important;
+    }
+
+    .turbo-badge {
+        font-size: 8px !important;
+        margin: 1px 0 !important;
+    }
+
+    /* Compact prison */
+
+    .prison-area {
+        padding: 1px !important;
+        gap: 1px !important;
+        max-height: 32px;
+        overflow: hidden;
+    }
+
+    .prison-area .token {
+        width: 14px !important;
+        height: 17px !important;
+    }
+
+    .prison-area .token svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Responsive board */
+
+    .board-frame {
+        width: var(--mobile-board-size, 340px)
+            !important;
+        height: var(--mobile-board-size, 340px)
+            !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        flex-shrink: 0;
+        margin: 0 auto !important;
+        padding: 4px !important;
+    }
+
+    #ludoBoard {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        aspect-ratio: 1 / 1 !important;
+
+        grid-template-columns:
+            repeat(15, minmax(0, 1fr)) !important;
+
+        grid-template-rows:
+            repeat(15, minmax(0, 1fr)) !important;
+    }
+
+    #ludoBoard .cell {
+        position: relative !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        font-size: 10px !important;
+    }
+
+    .blockade-badge {
+        font-size: 7px !important;
+        padding: 1px !important;
+    }
+
+    .last-point-badge {
+        font-size: 8px !important;
+    }
+
+    /* Dice and roll button */
+
+    .game-controls {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        flex-shrink: 0;
+        gap: 4px !important;
+        margin: 0 !important;
+        padding: 2px !important;
+    }
+
+    .turn-message {
+        font-size: 13px !important;
+        margin: 0 !important;
+    }
+
+    .dice-area {
+        gap: 15px !important;
+        margin: 2px 0 !important;
+    }
+
+    .game-dice {
+        width: 43px !important;
+        height: 43px !important;
+        padding: 6px !important;
+        border-radius: 9px !important;
+    }
+
+    .game-dice .dot {
+        width: 6px !important;
+        height: 6px !important;
+    }
+
+    .roll-button {
+        width: 80% !important;
+        min-height: 36px !important;
+        height: auto !important;
+        padding: 8px !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+    }
+
+    .gift-message {
+        font-size: 10px !important;
+        min-height: 12px !important;
+        margin: 0 !important;
+    }
+
+    .game-message {
+        font-size: 10px !important;
+        min-height: 24px !important;
+        margin: 0 !important;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    /* Keep dialogs inside the display */
+
+    dialog {
+        max-width: 92vw !important;
+        max-height: 85dvh !important;
+        overflow-y: auto !important;
+    }
+}

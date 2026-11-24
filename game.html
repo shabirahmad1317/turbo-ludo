@@ -8,24 +8,32 @@
 
     <meta name="viewport"
           content="width=device-width,
-                   initial-scale=1.0,
-                   viewport-fit=cover">
+          initial-scale=1.0,
+          maximum-scale=1.0,
+          minimum-scale=1.0,
+          user-scalable=no,
+          viewport-fit=cover">
 
     <meta name="theme-color"
           content="#10265d">
 
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
     <title>Turbo Ludo</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon"
+          href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="game.css">
 
     <link rel="stylesheet" href="spin.css">
 
-    <link rel="manifest" href="manifest.json">
-
     <style>
 
         .luck-status {
-
             text-align: center;
             padding: 8px;
             margin-bottom: 8px;
@@ -35,75 +43,27 @@
             color: #ffc83d;
             font-size: 12px;
             font-weight: bold;
-
         }
 
         .cell .token {
-
             position: absolute;
             width: 95%;
-            height: 120%;
+            height: 95%;
             bottom: 0;
             z-index: 3;
-
-        }
-
-        .cell .token:nth-of-type(2) {
-
-            transform:
-                translateX(-18%) scale(.75);
-
-        }
-
-        .cell .token:nth-of-type(3) {
-
-            transform:
-                translateX(18%) scale(.75);
-
-        }
-
-        .cell .token:nth-of-type(4) {
-
-            transform:
-                translateY(-20%) scale(.75);
-
-        }
-
-        .token.released {
-
-            animation: releaseToken .4s ease-out;
-
-        }
-
-        @keyframes releaseToken {
-
-            from {
-
-                opacity: 0;
-                scale: .3;
-
-            }
-
-            to {
-
-                opacity: 1;
-                scale: 1;
-
-            }
-
         }
 
         .gift-message {
-
             color: #ffc83d;
             font-weight: bold;
             font-size: 16px;
             min-height: 20px;
             margin: 8px 0;
-
         }
 
     </style>
+
+    <link rel="stylesheet" href="mobile.css">
 
 </head>
 
@@ -111,15 +71,11 @@
 
 <main class="game-container">
 
-    <!-- GAME HEADER -->
-
     <header class="game-header">
 
         <button class="icon-button"
                 onclick="goHome()">
-
             ❮
-
         </button>
 
         <div class="game-heading">
@@ -136,14 +92,10 @@
 
         <button class="icon-button"
                 onclick="restartGame()">
-
             ↻
-
         </button>
 
     </header>
-
-    <!-- LUCK ROLL STATUS -->
 
     <div id="luckStatus"
          class="luck-status">
@@ -151,8 +103,6 @@
         ✨ LUCK ROLL ACTIVE
 
     </div>
-
-    <!-- TOP PLAYERS -->
 
     <div class="players-row">
 
@@ -167,9 +117,7 @@
 
                 <small>Blue</small>
 
-                <span id="blue-score">
-                    0 / 4
-                </span>
+                <span id="blue-score">0 / 4</span>
 
             </div>
 
@@ -186,9 +134,7 @@
 
                 <small>Green</small>
 
-                <span id="green-score">
-                    0 / 4
-                </span>
+                <span id="green-score">0 / 4</span>
 
             </div>
 
@@ -196,18 +142,13 @@
 
     </div>
 
-    <!-- LUDO BOARD -->
-
     <div class="board-frame">
 
         <div id="ludoBoard"
              class="ludo-board">
-
         </div>
 
     </div>
-
-    <!-- BOTTOM PLAYERS -->
 
     <div class="players-row">
 
@@ -222,9 +163,7 @@
 
                 <small>Red</small>
 
-                <span id="red-score">
-                    0 / 4
-                </span>
+                <span id="red-score">0 / 4</span>
 
             </div>
 
@@ -241,9 +180,7 @@
 
                 <small>Yellow</small>
 
-                <span id="yellow-score">
-                    0 / 4
-                </span>
+                <span id="yellow-score">0 / 4</span>
 
             </div>
 
@@ -251,27 +188,21 @@
 
     </div>
 
-    <!-- GAME CONTROLS -->
-
     <section class="game-controls">
 
         <div id="turnMessage"
              class="turn-message">
-
             Ready to Play
-
         </div>
 
         <div class="dice-area">
 
             <div class="game-dice"
                  id="dice1">
-
             </div>
 
             <div class="game-dice"
                  id="dice2">
-
             </div>
 
         </div>
@@ -286,7 +217,6 @@
 
         <div id="giftMessage"
              class="gift-message">
-
         </div>
 
         <div id="gameMessage"
@@ -299,8 +229,6 @@
     </section>
 
 </main>
-
-<!-- LUCKY SPIN DIALOG -->
 
 <dialog id="spinDialog">
 
@@ -371,8 +299,6 @@
 
 </dialog>
 
-<!-- JAVASCRIPT FILES -->
-
 <script src="game.js"></script>
 
 <script src="spin.js"></script>
@@ -382,6 +308,8 @@
 <script src="save.js"></script>
 
 <script src="pwa.js"></script>
+
+<script src="mobile.js"></script>
 
 </body>
 
