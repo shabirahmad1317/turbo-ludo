@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+          initial-scale=1.0,
+          viewport-fit=cover">
+
+    <meta name="theme-color" content="#10265d">
+
+    <title>Turbo Ludo Statistics</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="history.css">
+
+</head>
+
+<body>
+
+<main class="history-app">
+
+    <header class="history-header">
+
+        <button class="back-button"
+                onclick="window.location.href='index.html'"
+                aria-label="Main menu">
+            ❮
+        </button>
+
+        <div>
+
+            <h1>STATISTICS</h1>
+
+            <small>TURBO LUDO</small>
+
+        </div>
+
+        <span class="header-trophy">🏆</span>
+
+    </header>
+
+    <nav class="history-filters">
+
+        <button class="filter-button active"
+                data-filter="all">
+            ALL
+        </button>
+
+        <button class="filter-button"
+                data-filter="turbo">
+            TURBO
+        </button>
+
+        <button class="filter-button"
+                data-filter="classic">
+            CLASSIC
+        </button>
+
+    </nav>
+
+    <section class="statistics-grid">
+
+        <div class="stat-card">
+
+            <span>🎲</span>
+
+            <strong id="totalMatches">0</strong>
+
+            <small>MATCHES</small>
+
+        </div>
+
+        <div class="stat-card">
+
+            <span>⚔</span>
+
+            <strong id="totalCaptures">0</strong>
+
+            <small>CAPTURES</small>
+
+        </div>
+
+        <div class="stat-card">
+
+            <span>🔄</span>
+
+            <strong id="totalTurns">0</strong>
+
+            <small>TURNS</small>
+
+        </div>
+
+        <div class="stat-card">
+
+            <span>⚡</span>
+
+            <strong id="turboMatches">0</strong>
+
+            <small>TURBO</small>
+
+        </div>
+
+        <div class="stat-card">
+
+            <span>👑</span>
+
+            <strong id="classicMatches">0</strong>
+
+            <small>CLASSIC</small>
+
+        </div>
+
+        <div class="stat-card">
+
+            <span>🏁</span>
+
+            <strong id="totalFinished">0</strong>
+
+            <small>FINISHED</small>
+
+        </div>
+
+    </section>
+
+    <section class="history-section">
+
+        <h2>🏅 PLAYER LEADERBOARD</h2>
+
+        <p class="section-description">
+
+            Lifetime performance of named players.
+
+        </p>
+
+        <div id="leaderboard"></div>
+
+    </section>
+
+    <section class="history-section">
+
+        <h2>📜 MATCH HISTORY</h2>
+
+        <p class="section-description">
+
+            Tap a match to view its complete results.
+
+        </p>
+
+        <div id="matchHistory"></div>
+
+    </section>
+
+    <button id="clearHistoryButton"
+            class="clear-button">
+
+        🗑 CLEAR MATCH HISTORY
+
+    </button>
+
+    <footer class="history-footer">
+
+        <img src="noortech-logo.png"
+             alt="NoorTech">
+
+        <strong>POWERED BY NOORTECH</strong>
+
+        <small>Innovation Beyond Limits</small>
+
+        <small>TURBO LUDO • V2.6.2</small>
+
+    </footer>
+
+</main>
+
+<dialog id="matchDetailsDialog">
+
+    <h2>🏆 MATCH RESULTS</h2>
+
+    <div id="matchDetails"></div>
+
+    <button class="close-button"
+            onclick="document.getElementById(
+                'matchDetailsDialog').close()">
+
+        CLOSE
+
+    </button>
+
+</dialog>
+
+<script src="history.js"></script>
+
+<script src="history-ui.js"></script>
+
+<script src="pwa.js"></script>
+
+</body>
+
+</html>

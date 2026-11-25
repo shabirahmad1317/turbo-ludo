@@ -1,9 +1,9 @@
 // =====================================
-// TURBO LUDO V2.4.0
+// TURBO LUDO V2.7.1
 // DEVELOPED BY NOORTECH
 // =====================================
 
-const CACHE_NAME = "turbo-ludo-v2.5.0";
+const CACHE_NAME = "turbo-ludo-v2.7.1";
 
 const APP_FILES = [
 
@@ -12,6 +12,10 @@ const APP_FILES = [
     "./index.html",
     "./style.css",
     "./app.js",
+
+    "./preferences.js",
+    "./preferences.css",
+    "./game-preferences.js",
 
     "./game.html",
     "./game.css",
@@ -30,6 +34,22 @@ const APP_FILES = [
     "./branding.css",
     "./branding.js",
     "./noortech-logo.png",
+
+    "./upgrade.css",
+    "./upgrade.js",
+
+    "./player-setup.css",
+    "./player-setup.js",
+
+    "./victory.js",
+
+    "./history.html",
+    "./history.css",
+    "./history.js",
+    "./history-ui.js",
+
+    "./themes.css",
+    "./themes.js",
 
     "./manifest.json",
 

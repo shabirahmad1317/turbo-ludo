@@ -1,19 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#123b91">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
 
     <title>Turbo Ludo</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="branding.css">
+    <link rel="stylesheet" href="preferences.css">
+
 </head>
 
 <body>
@@ -92,43 +94,34 @@
         </button>
 
         <button class="rules-button"
+                onclick="playSound(); window.location.href='history.html'">
+
+            🏆 HISTORY & STATISTICS
+
+        </button>
+
+        <button class="rules-button"
                 onclick="showRules()">
+
             📖 HOW TO PLAY
+
         </button>
 
     </section>
 
     <footer>
-        TURBO LUDO • VERSION 1.0
+        TURBO LUDO • VERSION 2.7.1
     </footer>
 
 </main>
 
 <dialog id="settingsDialog">
-
     <h2>SETTINGS</h2>
-
-    <label class="setting-row">
-        Sound Effects
-        <input type="checkbox" id="soundSetting">
-    </label>
-
-    <label class="setting-row">
-        Animations
-        <input type="checkbox" id="animationSetting">
-    </label>
-
-    <button class="rules-button"
-            onclick="saveSettings()">
-        SAVE & CLOSE
-    </button>
-
 </dialog>
 
 <dialog id="modeDialog">
 
     <h2 id="modeTitle"></h2>
-
     <p id="modeDescription"></p>
 
     <button class="rules-button"
@@ -166,10 +159,14 @@
 
 </dialog>
 
+<script src="preferences.js"></script>
 <script src="app.js"></script>
 
-<script src="pwa.js"></script>
+<script>
+    initializePreferences();
+</script>
 
+<script src="pwa.js"></script>
 <script src="branding.js"></script>
 
 </body>

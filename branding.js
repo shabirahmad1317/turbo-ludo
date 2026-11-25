@@ -1,6 +1,6 @@
 // =====================================
 // NOORTECH BRANDING
-// TURBO LUDO V2.5.1
+// TURBO LUDO V2.7.1
 // =====================================
 
 (() => {
@@ -13,7 +13,7 @@
 
         founder: "Shabir Ahmad Salehi",
 
-        version: "2.5.1",
+        version: "2.7.1",
 
         year: "2026",
 
@@ -22,9 +22,47 @@
     };
 
     const isGamePage =
-        document.getElementById("ludoBoard") !== null;
+        document.getElementById(
+            "ludoBoard"
+        ) !== null;
 
-    // STARTUP SPLASH SCREEN
+    function loadCustomization() {
+
+        if (
+            document.getElementById(
+                "turbo-theme-css"
+            )
+        ) return;
+
+        const css =
+            document.createElement("link");
+
+        css.id = "turbo-theme-css";
+
+        css.rel = "stylesheet";
+
+        css.href = "./themes.css";
+
+        document.head.appendChild(css);
+
+        const script =
+            document.createElement("script");
+
+        script.id = "turbo-theme-js";
+
+        script.src = "./themes.js";
+
+        script.onerror = () => {
+
+            console.error(
+                "Customization module failed to load."
+            );
+
+        };
+
+        document.body.appendChild(script);
+
+    }
 
     function showSplash() {
 
@@ -94,8 +132,6 @@
         }, 2000);
 
     }
-
-    // ABOUT NOORTECH
 
     function showAbout() {
 
@@ -175,19 +211,23 @@
 
         });
 
-        about.addEventListener("click", event => {
+        about.addEventListener(
 
-            if (event.target === about) {
+            "click",
 
-                about.remove();
+            event => {
+
+                if (event.target === about) {
+
+                    about.remove();
+
+                }
 
             }
 
-        });
+        );
 
     }
-
-    // MAIN MENU BRANDING
 
     function addMenuBranding() {
 
@@ -228,18 +268,33 @@
 
         footer.querySelector(
             ".noortech-about-button"
-        ).addEventListener("click", showAbout);
+        ).addEventListener(
+            "click",
+            showAbout
+        );
+
+        const originalFooter =
+            document.querySelector(
+                "main.app > footer"
+            );
+
+        if (originalFooter) {
+
+            originalFooter.textContent =
+                `TURBO LUDO • VERSION ${BRAND.version}`;
+
+        }
 
     }
-
-    // IN-GAME BRANDING
 
     function addGameBranding() {
 
         if (!isGamePage) return;
 
         const controls =
-            document.querySelector(".game-controls");
+            document.querySelector(
+                ".game-controls"
+            );
 
         if (!controls) return;
 
@@ -256,8 +311,6 @@
 
     }
 
-    // INITIALIZE
-
     function initializeBranding() {
 
         showSplash();
@@ -266,13 +319,20 @@
 
         addGameBranding();
 
+        loadCustomization();
+
     }
 
-    if (document.readyState === "loading") {
+    if (
+        document.readyState === "loading"
+    ) {
 
         document.addEventListener(
+
             "DOMContentLoaded",
+
             initializeBranding
+
         );
 
     } else {

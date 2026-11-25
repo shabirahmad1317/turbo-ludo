@@ -1,0 +1,249 @@
+/* ==========================================
+   TURBO LUDO V2.7.0
+   CUSTOMIZATION STYLES
+   DEVELOPED BY NOORTECH
+   ========================================== */
+
+/* CUSTOM BOARD COLORS */
+
+html[data-ludo-theme]:not([data-ludo-theme="original"]) {
+    --red: var(--theme-red);
+    --blue: var(--theme-blue);
+    --green: var(--theme-green);
+    --yellow: var(--theme-yellow);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+.board-frame {
+    background: var(--theme-frame);
+    border-color: var(--theme-frame);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+#ludoBoard {
+    background: var(--theme-board);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+#ludoBoard .cell {
+    border-color: var(--theme-line);
+    color: var(--theme-ink);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+#ludoBoard .cell:not(.red):not(.green):not(.blue):not(.yellow) {
+    background: var(--theme-board);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+#ludoBoard .home-inner {
+    background: var(--theme-board);
+}
+
+html[data-ludo-theme]:not([data-ludo-theme="original"])
+#ludoBoard .home-stop.colored {
+    color: #ffffff;
+}
+
+/* CUSTOMIZATION DIALOG */
+
+#customizationDialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(92vw, 420px);
+    max-height: 88dvh;
+    overflow-y: auto;
+    padding: 18px;
+    border: 2px solid #ffc83d;
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        #193b85,
+        #07132e
+    );
+    color: white;
+    box-sizing: border-box;
+}
+
+#customizationDialog::backdrop {
+    background: #000c;
+    backdrop-filter: blur(5px);
+}
+
+#customizationDialog h2 {
+    font-size: 21px;
+    color: #ffc83d;
+    text-align: center;
+    margin: 0 0 8px;
+}
+
+#customizationDialog p {
+    font-size: 12px;
+    color: #b6cbef;
+    text-align: center;
+    margin: 0 0 14px;
+}
+
+#customizationDialog h3 {
+    color: #ffc83d;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 18px 0 10px;
+}
+
+/* LIVE BOARD PREVIEW */
+
+#themePreview {
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+}
+
+.theme-preview {
+    width: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns:
+        repeat(15, minmax(0, 1fr));
+    grid-template-rows:
+        repeat(15, minmax(0, 1fr));
+    border: 3px solid #ffc83d;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.theme-preview-cell {
+    border: .5px solid #84909c;
+    min-width: 0;
+    min-height: 0;
+}
+
+.theme-preview-home {
+    display: grid;
+    place-items: center;
+}
+
+.theme-preview-inner {
+    width: 72%;
+    height: 72%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 8%;
+    gap: 8%;
+    border-radius: 5px;
+}
+
+.theme-preview-token {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+}
+
+.theme-preview-token svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.theme-preview-center {
+    grid-row: 7 / span 3;
+    grid-column: 7 / span 3;
+}
+
+/* CUSTOMIZATION OPTIONS */
+
+.custom-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.custom-option {
+    min-width: 0;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #ffffff33;
+    border-radius: 10px;
+    background: #ffffff0a;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.custom-option.selected {
+    border-color: #ffc83d;
+    background: #ffc83d22;
+    box-shadow: 0 0 8px #ffc83d22;
+    color: #ffc83d;
+}
+
+.custom-palette {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.custom-palette span {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #ffffff55;
+}
+
+.custom-token-icon {
+    width: 38px;
+    height: 45px;
+}
+
+.custom-token-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* SAVE AND RESET BUTTONS */
+
+.custom-save,
+.custom-secondary {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.custom-save {
+    margin-top: 18px;
+    border: 1px solid #ffc83d;
+    background: #ffc83d;
+    color: #10265d;
+}
+
+.custom-secondary {
+    border: 1px solid #ffc83d66;
+    background: transparent;
+    color: #ffc83d;
+}
+
+@media (max-height: 740px) {
+
+    #themePreview {
+        max-width: 200px;
+    }
+
+    #customizationDialog {
+        padding: 12px;
+    }
+
+    .custom-option {
+        padding: 7px 4px;
+    }
+
+}
