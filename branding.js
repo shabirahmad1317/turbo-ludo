@@ -1,6 +1,6 @@
 // =====================================
 // NOORTECH BRANDING
-// TURBO LUDO V2.4.0
+// TURBO LUDO V2.5.1
 // =====================================
 
 (() => {
@@ -13,7 +13,7 @@
 
         founder: "Shabir Ahmad Salehi",
 
-        version: "2.4.0",
+        version: "2.5.1",
 
         year: "2026",
 
@@ -24,9 +24,7 @@
     const isGamePage =
         document.getElementById("ludoBoard") !== null;
 
-    // =================================
     // STARTUP SPLASH SCREEN
-    // =================================
 
     function showSplash() {
 
@@ -97,9 +95,7 @@
 
     }
 
-    // =================================
     // ABOUT NOORTECH
-    // =================================
 
     function showAbout() {
 
@@ -146,17 +142,11 @@
                     <strong>${BRAND.founder}</strong>
                 </p>
 
-                <p>
-                    Afghanistan
-                </p>
+                <p>Afghanistan</p>
 
-                <p>
-                    100% Offline Gameplay
-                </p>
+                <p>100% Offline Gameplay</p>
 
-                <p>
-                    ${BRAND.slogan}
-                </p>
+                <p>${BRAND.slogan}</p>
 
                 <p>
                     © ${BRAND.year} ${BRAND.name}
@@ -197,9 +187,7 @@
 
     }
 
-    // =================================
     // MAIN MENU BRANDING
-    // =================================
 
     function addMenuBranding() {
 
@@ -244,9 +232,7 @@
 
     }
 
-    // =================================
     // IN-GAME BRANDING
-    // =================================
 
     function addGameBranding() {
 
@@ -270,9 +256,7 @@
 
     }
 
-    // =================================
     // INITIALIZE
-    // =================================
 
     function initializeBranding() {
 

@@ -1,0 +1,182 @@
+/* TURBO LUDO V2.5 — NOORTECH */
+
+@media (max-width: 600px) {
+
+    body {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+
+    .game-container {
+        padding: 3px !important;
+        gap: 3px !important;
+        justify-content: space-between !important;
+        overflow-y: auto !important;
+    }
+
+    .board-frame {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        flex-shrink: 0 !important;
+        padding: 2px !important;
+        margin: 0 auto !important;
+    }
+
+    #ludoBoard {
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 1 / 1;
+    }
+
+    .player {
+        padding: 4px !important;
+        gap: 3px !important;
+    }
+
+    .player-dice-slot {
+        height: 44px !important;
+    }
+
+    .player-dice-slot .game-dice {
+        width: 35px !important;
+        height: 35px !important;
+        padding: 6px !important;
+    }
+
+    .avatar {
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+    }
+
+    .player-info small {
+        font-size: 11px !important;
+    }
+
+    .capture-counter {
+        font-size: 9px !important;
+    }
+
+    .game-controls {
+        gap: 2px !important;
+        padding: 2px !important;
+    }
+
+    .gift-message:empty {
+        display: none !important;
+    }
+
+    .game-message {
+        min-height: 18px !important;
+        font-size: 11px !important;
+    }
+
+    .team-progress-card {
+        padding: 3px !important;
+    }
+
+    .noortech-game-credit {
+        font-size: 8px !important;
+    }
+}
+
+/* Realistic dice movement */
+
+.game-dice.rolling {
+    animation: realisticDice .24s linear infinite !important;
+}
+
+.game-dice#dice2.rolling {
+    animation-direction: reverse !important;
+}
+
+@keyframes realisticDice {
+
+    0% {
+        transform: perspective(150px)
+            rotateX(0deg) rotateZ(-15deg);
+    }
+
+    25% {
+        transform: perspective(150px)
+            rotateX(45deg) rotateZ(20deg)
+            translateY(-6px);
+    }
+
+    50% {
+        transform: perspective(150px)
+            rotateY(45deg) rotateZ(-20deg);
+    }
+
+    75% {
+        transform: perspective(150px)
+            rotateX(-45deg) rotateZ(15deg)
+            translateY(-5px);
+    }
+
+    100% {
+        transform: perspective(150px)
+            rotateX(0deg) rotateZ(-15deg);
+    }
+}
+
+/* Token selection ring */
+
+.token.legal-token::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid #ffdf00;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: tokenRing .7s infinite alternate;
+}
+
+@keyframes tokenRing {
+
+    from {
+        opacity: .5;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+        box-shadow: 0 0 8px gold;
+    }
+}
+
+/* Active dice arrow */
+
+.player.active .player-dice-slot .dice-area {
+    position: relative;
+}
+
+.player.active .dice-area.ready-to-roll::after {
+    content: "➤";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    color: #ffdf00;
+    font-size: 20px;
+    pointer-events: none;
+    animation: dicePointer .6s infinite alternate;
+}
+
+@keyframes dicePointer {
+
+    from {
+        transform: translate(0, -50%) rotate(180deg);
+    }
+
+    to {
+        transform: translate(5px, -50%) rotate(180deg);
+    }
+}
+
+.no-animations *,
+.no-animations *::after {
+    animation: none !important;
+    transition: none !important;
+}

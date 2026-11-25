@@ -3,7 +3,7 @@
 // DEVELOPED BY NOORTECH
 // =====================================
 
-const CACHE_NAME = "turbo-ludo-v2.4.0";
+const CACHE_NAME = "turbo-ludo-v2.5.0";
 
 const APP_FILES = [
 
