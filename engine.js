@@ -25,17 +25,17 @@ const gameMessage =
 // ==========================================
 
 const teams = {
-    red: "A",
+    blue: "A",
     green: "A",
-    blue: "B",
+    red: "B",
     yellow: "B"
 };
 
 const teammates = {
-    red: "green",
-    green: "red",
-    blue: "yellow",
-    yellow: "blue"
+    blue: "green",
+    green: "blue",
+    red: "yellow",
+    yellow: "red"
 };
 
 function isTeammate(first, second) {
@@ -66,10 +66,10 @@ function canControlToken(token) {
 // ==========================================
 
 const homeStops = {
-    blue: [[6, 1], [8, 2]],
+    red: [[6, 1], [8, 2]],
     green: [[1, 8], [2, 6]],
     yellow: [[8, 13], [6, 12]],
-    red: [[13, 6], [12, 8]]
+    blue: [[13, 6], [12, 8]]
 };
 
 const mainPath = [
@@ -105,29 +105,29 @@ const mainPath = [
 ];
 
 const startingIndexes = {
-    blue: 0,
+    red: 0,
     green: 13,
     yellow: 26,
-    red: 39
+    blue: 39
 };
 
 const startingPoints = {
-    red: [13, 6],
-    blue: [6, 1],
+    blue: [13, 6],
+    red: [6, 1],
     green: [1, 8],
     yellow: [8, 13]
 };
 
 const lastPoints = {
-    red: [14, 7],
-    blue: [7, 0],
+    blue: [14, 7],
+    red: [7, 0],
     green: [0, 7],
     yellow: [7, 14]
 };
 
 const homeLanes = {
 
-    blue: [
+    red: [
         [7, 1], [7, 2], [7, 3],
         [7, 4], [7, 5]
     ],
@@ -142,7 +142,7 @@ const homeLanes = {
         [7, 10], [7, 9]
     ],
 
-    red: [
+    blue: [
         [13, 7], [12, 7], [11, 7],
         [10, 7], [9, 7]
     ]
@@ -401,7 +401,7 @@ movementStyle.textContent = `
         pointer-events: none;
     }
 
-    .finish-blue {
+    .finish-red {
         left: 40%;
         top: 45.5%;
     }
@@ -416,7 +416,7 @@ movementStyle.textContent = `
         top: 45.5%;
     }
 
-    .finish-red {
+    .finish-blue {
         left: 45.5%;
         top: 51%;
     }
@@ -657,7 +657,7 @@ function createTeamProgress() {
 
         <div class="team-progress-card">
 
-            🔴 RED + 🟢 GREEN
+            🔵 BLUE + 🟢 GREEN
 
             <div id="team-A-score">0 / 8</div>
 
@@ -670,7 +670,7 @@ function createTeamProgress() {
 
         <div class="team-progress-card">
 
-            🔵 BLUE + 🟡 YELLOW
+            🔴 RED + 🟡 YELLOW
 
             <div id="team-B-score">0 / 8</div>
 
@@ -1452,9 +1452,9 @@ function showVictory(team, winnerColor = null) {
 
         winnerName = team === "A"
 
-            ? "RED & GREEN WIN!"
+            ? "BLUE & GREEN WIN!"
 
-            : "BLUE & YELLOW WIN!";
+            : "RED & YELLOW WIN!";
 
         subtitle =
             "All eight team tokens finished!";
@@ -1948,10 +1948,10 @@ function selectDie(index) {
 }
 
 document.getElementById("dice1")
-    .addEventListener("click", () => selectDie(0));
+    .addEventListener("click", () => turnPhase === "roll" ? rollDice() : selectDie(0));
 
 document.getElementById("dice2")
-    .addEventListener("click", () => selectDie(1));
+    .addEventListener("click", () => turnPhase === "roll" ? rollDice() : selectDie(1));
 
 // ==========================================
 // SMART AUTOMATIC MOVEMENT

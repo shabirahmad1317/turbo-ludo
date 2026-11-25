@@ -1,4 +1,3 @@
-
 const mode =
     localStorage.getItem("gameMode") || "turbo";
 
@@ -16,7 +15,7 @@ const darkColors = {
     yellow: "#ad7900"
 };
 
-const players = ["red", "blue", "green", "yellow"];
+const players = ["blue", "red", "green", "yellow"];
 
 let currentPlayer = "red";
 let isRolling = false;
@@ -37,7 +36,7 @@ if (!animationsEnabled) {
 
 const boardRules = {
 
-    red: {
+    blue: {
         homeStops: [
             [13, 6],
             [12, 8]
@@ -45,7 +44,7 @@ const boardRules = {
         lastPoint: [14, 7]
     },
 
-    blue: {
+    red: {
         homeStops: [
             [6, 1],
             [8, 2]
@@ -174,9 +173,9 @@ function createBoard() {
 
     }
 
-    createHome("blue", 0, 0);
+    createHome("red", 0, 0);
     createHome("green", 0, 9);
-    createHome("red", 9, 0);
+    createHome("blue", 9, 0);
     createHome("yellow", 9, 9);
 
     createCenter();
@@ -188,7 +187,7 @@ function colorCell(cell, row, col) {
     // Blue finishing lane
 
     if (row === 7 && col >= 1 && col <= 5) {
-        cell.classList.add("blue");
+        cell.classList.add("red");
     }
 
     // Green finishing lane
@@ -206,13 +205,13 @@ function colorCell(cell, row, col) {
     // Red finishing lane
 
     if (col === 7 && row >= 9 && row <= 13) {
-        cell.classList.add("red");
+        cell.classList.add("blue");
     }
 
     // Starting squares
 
     if (row === 6 && col === 1) {
-        cell.classList.add("blue");
+        cell.classList.add("red");
     }
 
     if (row === 1 && col === 8) {
@@ -224,7 +223,7 @@ function colorCell(cell, row, col) {
     }
 
     if (row === 13 && col === 6) {
-        cell.classList.add("red");
+        cell.classList.add("blue");
     }
 
 }
@@ -232,8 +231,8 @@ function colorCell(cell, row, col) {
 function markSpecialCell(cell, row, col) {
 
     const arrows = {
-        red: "↑",
-        blue: "→",
+        blue: "↑",
+        red: "→",
         green: "↓",
         yellow: "←"
     };
@@ -344,59 +343,12 @@ function createToken(token) {
     const dark = darkColors[token.color];
 
     element.innerHTML = `
-        <svg viewBox="0 0 40 50">
-
-            <defs>
-
-                <linearGradient
-                    id="gradient-${token.id}"
-                    x1="0%" y1="0%"
-                    x2="100%" y2="100%">
-
-                    <stop offset="0%"
-                          stop-color="#ffffff"/>
-
-                    <stop offset="30%"
-                          stop-color="${color}"/>
-
-                    <stop offset="100%"
-                          stop-color="${dark}"/>
-
-                </linearGradient>
-
-            </defs>
-
-            <ellipse
-                cx="20" cy="44"
-                rx="16" ry="5"
-                fill="#000000"
-                opacity="0.25"/>
-
-            <ellipse
-                cx="20" cy="40"
-                rx="16" ry="7"
-                fill="${dark}"/>
-
-            <path
-                d="M7 38
-                   Q15 29 14 22
-                   A12 12 0 1 1 26 22
-                   Q25 29 33 38
-                   Q20 48 7 38 Z"
-
-                fill="url(#gradient-${token.id})"
-
-                stroke="${dark}"
-                stroke-width="1.5"/>
-
-            <ellipse
-                cx="15" cy="10"
-                rx="4" ry="3"
-                fill="white"
-                opacity="0.7"/>
-
-        </svg>
-    `;
+        <svg viewBox="0 0 40 50" aria-hidden="true">
+            <ellipse cx="20" cy="42" rx="15" ry="6" fill="${dark}" stroke="${color}" stroke-width="3"/>
+            <path d="M20 42 C16 35 4 25 4 17 A16 16 0 1 1 36 17 C36 25 24 35 20 42Z" fill="#f8fafc" stroke="#26354a" stroke-width="2"/>
+            <circle cx="20" cy="17" r="11" fill="${color}" stroke="${dark}" stroke-width="2"/>
+            <ellipse cx="16" cy="12" rx="5" ry="3" fill="white" opacity=".5"/>
+        </svg>`;
 
     element.onclick = () => selectToken(token);
 

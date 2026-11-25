@@ -1,14 +1,14 @@
+// =====================================
+// TURBO LUDO V2.4.0
+// DEVELOPED BY NOORTECH
+// =====================================
 
-// ==========================================
-// TURBO LUDO - VERSION 1.1.0
-// MOBILE OPTIMIZED OFFLINE CACHE
-// ==========================================
-
-const CACHE_NAME = "turbo-ludo-v1.1.0";
+const CACHE_NAME = "turbo-ludo-v2.4.0";
 
 const APP_FILES = [
 
     "./",
+
     "./index.html",
     "./style.css",
     "./app.js",
@@ -27,6 +27,10 @@ const APP_FILES = [
     "./mobile.css",
     "./mobile.js",
 
+    "./branding.css",
+    "./branding.js",
+    "./noortech-logo.png",
+
     "./manifest.json",
 
     "./icon-192.png",
@@ -34,6 +38,8 @@ const APP_FILES = [
     "./apple-touch-icon.png"
 
 ];
+
+// INSTALL
 
 self.addEventListener("install", event => {
 
@@ -70,6 +76,8 @@ self.addEventListener("install", event => {
 
 });
 
+// ACTIVATE
+
 self.addEventListener("activate", event => {
 
     event.waitUntil(
@@ -97,6 +105,8 @@ self.addEventListener("activate", event => {
     );
 
 });
+
+// FETCH
 
 self.addEventListener("fetch", event => {
 

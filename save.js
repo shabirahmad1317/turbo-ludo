@@ -1,12 +1,11 @@
-
 // ==========================================
 // TURBO LUDO - MILESTONE 10
 // AUTOMATIC SAVE AND RESUME
 // ==========================================
 
-const SAVE_KEY = `turboLudoSave_${mode}`;
+const SAVE_KEY = `turboLudoSave_v2_${mode}`;
 
-const SAVE_VERSION = 1;
+const SAVE_VERSION = 2;
 
 let savingEnabled = false;
 let lastSavedTime = null;
@@ -494,11 +493,11 @@ function showResumeDialog(data) {
     dialog.className = "resume-dialog";
 
     const scoreA =
-        data.gameState.red.finished +
+        data.gameState.blue.finished +
         data.gameState.green.finished;
 
     const scoreB =
-        data.gameState.blue.finished +
+        data.gameState.red.finished +
         data.gameState.yellow.finished;
 
     const savedDate = new Date(
@@ -519,7 +518,7 @@ function showResumeDialog(data) {
 
                 <div class="resume-row">
 
-                    <span>🔴 Red + 🟢 Green</span>
+                    <span>🔵 Blue + 🟢 Green</span>
 
                     <strong>${scoreA} / 8</strong>
 
@@ -535,7 +534,7 @@ function showResumeDialog(data) {
 
                 <div class="resume-row">
 
-                    <span>🔵 Blue + 🟡 Yellow</span>
+                    <span>🔴 Red + 🟡 Yellow</span>
 
                     <strong>${scoreB} / 8</strong>
 

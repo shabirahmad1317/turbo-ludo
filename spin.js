@@ -1,4 +1,3 @@
-
 // =====================================
 // TURBO LUDO
 // Lucky Spin and Automatic Turns
@@ -12,8 +11,8 @@ const spinColors = [
 ];
 
 const turnOrder = [
-    "red",
     "blue",
+    "red",
     "green",
     "yellow"
 ];
